@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, CardBody, CardHeader } from 'reactstrap';
-import LoginForm from './LoginForm';
+import LoginForm from '../components/Login/LoginForm';
 
-const LoginPage = ({ setIsLoggedIn }) => {
+const LoginContainer = ({ setIsLoggedIn }) => {
     return (
         <div className='container col-md-3 py-5'>
             <Card>
@@ -17,4 +17,4 @@ const LoginPage = ({ setIsLoggedIn }) => {
     );
 };
 
-export default LoginPage;
+export default LoginContainer;

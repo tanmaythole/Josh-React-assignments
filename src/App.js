@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Home from './components/Home/Home';
-import LoginPage from './components/Login/LoginPage';
-import NavBar from './components/Navbar/NavBar';
+import HomeContainer from './Containers/HomeContainer';
+import LoginContainer from './Containers/LoginContainer';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,12 +16,9 @@ function App() {
   return (
     <div className="App">
       {isLoggedIn?(
-          <>
-            <NavBar setIsLoggedIn={setIsLoggedIn} />
-            <Home setIsLoggedIn={setIsLoggedIn} />
-          </>
+          <HomeContainer setIsLoggedIn={setIsLoggedIn} />
         ):(
-          <LoginPage setIsLoggedIn={setIsLoggedIn} />
+          <LoginContainer setIsLoggedIn={setIsLoggedIn} />
         )
       }
     </div>
