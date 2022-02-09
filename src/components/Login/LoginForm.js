@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import axios from '../../axios';
+import { login } from '../../state/actions';
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = () => {
     const [formData, setFormData] = useState({"email":"", "password":""});
+    let navigate = useNavigate();
+    
+    const dispatch = useDispatch();
 
     const onsubmit = (e) => {
         e.preventDefault();
         axios.post("/login", formData)
             .then(res => {
                 localStorage.setItem("token", res.data['token']);
-                setIsLoggedIn(true);
+                dispatch(login());
+                navigate('/');
             })
             .catch(err => console.log(err))
     }

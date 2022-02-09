@@ -1,10 +1,18 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button, Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { logout } from '../../state/actions';
 
-const NavBar = ({ setIsLoggedIn }) => {
+
+const NavBar = () => {
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
+
     const logOut = () => {
         localStorage.removeItem("token");
-        setIsLoggedIn(false);
+        dispatch(logout());
+        navigate('/login')
     }
 
     return (

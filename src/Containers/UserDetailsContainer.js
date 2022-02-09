@@ -13,7 +13,7 @@ const UserDetailsContainer = () => {
             .then(res => {
                 setUserData(res.data.data)
             })
-    }, [])
+    }, [userId])
     
 
     return (

@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import NavBar from '../components/Navbar/NavBar';
 import UserBox from '../components/UserBox/UserBox';
 
-const HomeContainer = ({ setIsLoggedIn }) => {
+const HomeContainer = () => {
     const [usersData, setUsersData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
@@ -24,7 +24,7 @@ const HomeContainer = ({ setIsLoggedIn }) => {
 
     return (
         <div>
-            <NavBar setIsLoggedIn={setIsLoggedIn} />
+            <NavBar />
             <Container style={{minHeight: "calc(100vh - 160px)"}}>
                 {loading?(<h1>Loading</h1>):(
                     <>

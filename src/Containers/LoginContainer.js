@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardHeader } from 'reactstrap';
 import LoginForm from '../components/Login/LoginForm';
 
-const LoginContainer = ({ setIsLoggedIn }) => {
+const LoginContainer = () => {
     return (
         <div className='container col-md-3 py-5'>
             <Card>
@@ -10,7 +10,7 @@ const LoginContainer = ({ setIsLoggedIn }) => {
                     <h2>Login</h2>
                 </CardHeader>
                 <CardBody>
-                    <LoginForm setIsLoggedIn={setIsLoggedIn} />
+                    <LoginForm />
                 </CardBody>
             </Card>
         </div>
