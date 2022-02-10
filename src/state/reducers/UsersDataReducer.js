@@ -1,7 +1,7 @@
 const usersDataReducer = (state=[], action) => {
     switch(action.type) {
         case 'ADD_USERS_DATA':
-            return [...state, ...action.payload]
+            return state.concat(action.payload)
         
             default:
                 return state

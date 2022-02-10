@@ -6,15 +6,18 @@ import {
   Route
 } from 'react-router-dom';
 import UserDetailsContainer from './Containers/UserDetailsContainer';
+import PrivateRoutes from './PrivateRoutes';
 
 function App() {
 
   return (
     <div className="App">
       <Routes>
+        <Route path='/' element={<PrivateRoutes />}>
+          <Route path="/" element={<HomeContainer />} />
+          <Route path='/userDetails/:userId' element={<UserDetailsContainer />} />
+        </Route>
         <Route path="/login" element={<LoginContainer />} />
-        <Route path="/" element={<HomeContainer />} />
-        <Route path='/userDetails/:userId' element={<UserDetailsContainer />} />
       </Routes>
     </div>
   );
