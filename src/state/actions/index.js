@@ -17,6 +17,12 @@ export const addUsersData = (data) => {
     }
 }
 
+export const resetData = (data) => {
+    return {
+        type: "RESET_DATA"
+    }
+}
+
 export const userDetails = (data) => {
     return {
         type: "USER_DETAILS",

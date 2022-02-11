@@ -3,6 +3,9 @@ const usersDataReducer = (state=[], action) => {
         case 'ADD_USERS_DATA':
             return state.concat(action.payload)
         
+        case 'RESET_DATA':
+            return []
+            
             default:
                 return state
     }

@@ -5,10 +5,9 @@ import axios from '../axios';
 import Footer from '../components/Footer/Footer';
 import NavBar from '../components/Navbar/NavBar';
 import UserBox from '../components/UserBox/UserBox';
-import { addUsersData } from '../state/actions';
+import { addUsersData, resetData } from '../state/actions';
 
 const HomeContainer = () => {
-    // const [usersData, setUsersData] = useState([]);
     let dispatch = useDispatch();
     let usersData = useSelector(state => state.usersDataReducer)
 
@@ -16,12 +15,13 @@ const HomeContainer = () => {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState();
 
-    console.log(usersData);
+    useEffect(() => {
+        dispatch(resetData());
+    }, [])
 
     useEffect(() => {
         axios.get(`/users?page=${page}`)
             .then(res => {
-                // setUsersData(usersData.concat(res.data.data));
                 
                 dispatch(addUsersData(res.data.data))
                 
