@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Button, Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink as NavCSS } from 'reactstrap';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Button, Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler } from 'reactstrap';
 import { logout } from '../../state/actions';
 
 
