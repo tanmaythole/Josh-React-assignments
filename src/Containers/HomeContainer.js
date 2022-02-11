@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Col, Container, Row } from 'reactstrap';
 import axios from '../axios';
-import Footer from '../components/Footer/Footer';
-import NavBar from '../components/Navbar/NavBar';
 import UserBox from '../components/UserBox/UserBox';
 import { addUsersData, resetData } from '../state/actions';
 
@@ -38,26 +36,22 @@ const HomeContainer = () => {
 
 
     return (
-        <div>
-            <NavBar />
-            <Container style={{minHeight: "calc(100vh - 160px)"}}>
-                {loading?(<h1>Loading</h1>):(
-                    <>
-                        <Row>
-                            {usersData.map(e => {
-                                return <Col key={e.id} md="3">
-                                    <UserBox user={e} />
-                                </Col>
-                            })}
-                        </Row>
-                        <div className='text-center py-4'>
-                            <Button color='success' className='m-auto' onClick={changePage} disabled={totalPages===page}>Fetch More Users</Button>
-                        </div>
-                    </>
-                )}
-            </Container>
-            <Footer />
-        </div>
+        <Container className='bodySection'>
+            {loading?(<h1>Loading</h1>):(
+                <>
+                    <Row>
+                        {usersData.map(e => {
+                            return <Col key={e.id} md="3">
+                                <UserBox user={e} />
+                            </Col>
+                        })}
+                    </Row>
+                    <div className='text-center py-4'>
+                        <Button color='success' className='m-auto' onClick={changePage} disabled={totalPages===page}>Fetch More Users</Button>
+                    </div>
+                </>
+            )}
+        </Container>
     );
 };
 

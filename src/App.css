@@ -3,3 +3,6 @@
   background-color: #333;
 }
 
+.bodySection {
+  min-height: calc(100vh - 160px);
+}

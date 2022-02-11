@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Container } from 'reactstrap';
@@ -7,7 +7,6 @@ import UserBox from '../components/UserBox/UserBox';
 import { userDetails } from '../state/actions';
 
 const UserDetailsContainer = () => {
-    // const [userData, setUserData] = useState([]);
     let userData = useSelector(state => state.userDetailsReducer);
     let dispatch = useDispatch();
 
@@ -16,15 +15,13 @@ const UserDetailsContainer = () => {
     useEffect(() => {
         axios.get(`/users/${userId}`)
             .then(res => {
-                // setUserData(res.data.data);
                 dispatch(userDetails(res.data.data))
-
             })
     }, [userId])
     
 
     return (
-        <Container className='text-center py-5'>
+        <Container className='text-center py-5 bodySection'>
             <UserBox user={userData} />
         </Container>
     )

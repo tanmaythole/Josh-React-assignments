@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Button, Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Button, Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink as NavCSS } from 'reactstrap';
 import { logout } from '../../state/actions';
 
 
@@ -15,6 +15,17 @@ const NavBar = () => {
         navigate('/login')
     }
 
+    const links = [
+        {
+            title: "Users",
+            to: "/users"
+        },
+        {
+            title: "Blogs",
+            to: "/blogs"
+        }
+    ]
+    
     return (
         <div>
             <Navbar color='dark' dark expand="md">
@@ -24,11 +35,23 @@ const NavBar = () => {
                 <NavbarToggler onClick={function noRefCheck(){}} />
                 <Collapse navbar>
                     <Nav className="me-auto" navbar >
-                        <NavItem>
-                            <NavLink>
-                                Components
+                        {links.map(e => {
+                            return <NavLink 
+                                to={e.to} 
+                                style={ ({ isActive }) => { 
+                                    return {
+                                        display:"block", 
+                                        color:isActive?"#fff":"#afafaf", 
+                                        textDecoration:"None",
+                                        padding: "0 1rem"
+                                        } 
+                                    }
+                                }
+                            >
+                                {e.title}
                             </NavLink>
-                        </NavItem>
+                        })}
+                        
                     </Nav>
                     <NavbarText>
                         <Button onClick={()=>logOut()} color="danger">LogOut</Button>

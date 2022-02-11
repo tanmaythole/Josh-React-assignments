@@ -29,3 +29,10 @@ export const userDetails = (data) => {
         payload: data
     }
 }
+
+export const addBlogs = (data) => {
+    return {
+        type: "ADD_BLOGS",
+        payload: data
+    }
+}
